@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import './Sched.css';
 
 import logo from './LOGO1.png';
@@ -28,6 +28,7 @@ function Sched() {
 
   return (
     <div className="App">
+      <Link to="/" className="upper-left-button">Home</Link>
       <h2>Please select your preferred laundry schedule and time for your laundry activities.</h2>
       <div className="top">
         {days.slice(0, 3).map((day, index) => (

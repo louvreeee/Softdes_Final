@@ -93,3 +93,23 @@ p {
   font-size: 18px;
   border-bottom: 1px solid black; /* Add a black border to separate time slots */
 }
+
+.upper-left-button {
+  background-color: #4CAF50; /* Green background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Add some padding for better appearance */
+  border: none; /* Remove the link's default underline and border */
+  border-radius: 5px; /* Add a slight border radius */
+  text-decoration: none; /* Remove underline from the link */
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute; /* Position it absolutely */
+  top: 20px; /* Distance from the top of the viewport */
+  left: 20px; /* Distance from the left of the viewport */
+  transition: background-color 0.3s; /* Add a smooth color transition effect */
+}
+
+/* Style for the link on hover */
+.upper-left-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
