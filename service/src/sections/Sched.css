@@ -1,4 +1,3 @@
-/* src/App.css */
 .App {
   display: flex;
   flex-direction: column;
@@ -112,4 +111,16 @@ p {
 /* Style for the link on hover */
 .upper-left-button:hover {
   background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.confirmed {
+  background-color: #d32323(241, 11, 11); /* You can adjust the style as needed */
+  filter: blur(3px);     /* Apply blur effect */
+}
+
+.unavailable {
+  background-color: #7a6d6d; /* Set the background color to red */
+  color: #ffffff; /* Change the text color to white or a contrasting color */
+  cursor: not-allowed; /* Change the cursor to indicate it's not clickable */
+  /* Add any other styles you want for unavailable slots */
 }

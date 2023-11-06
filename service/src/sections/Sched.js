@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sched.css';
@@ -11,6 +10,15 @@ function Sched() {
 
   const [selectedBox, setSelectedBox] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [confirmedSchedule, setConfirmedSchedule] = useState(null);
+  const [unavailableTimes, setUnavailableTimes] = useState({
+    SUN: [],
+    MON: [],
+    TUE: [],
+    WED: [],
+    THU: [],
+    FRI: [],
+  });
 
   const handleBoxClick = (day) => {
     setSelectedBox(day);
@@ -18,7 +26,24 @@ function Sched() {
   };
 
   const handleTimeClick = (time) => {
-    setSelectedTime(time);
+    if (!unavailableTimes[selectedBox].includes(time)) {
+      setSelectedTime(time);
+    }
+  };
+
+  const confirmSchedule = () => {
+    if (selectedBox && selectedTime) {
+      setConfirmedSchedule({
+        day: selectedBox,
+        time: selectedTime,
+      });
+
+      // Mark the selected time as unavailable for the selected day
+      setUnavailableTimes((prevUnavailableTimes) => ({
+        ...prevUnavailableTimes,
+        [selectedBox]: [...prevUnavailableTimes[selectedBox], selectedTime],
+      }));
+    }
   };
 
   const closePopout = () => {
@@ -28,7 +53,9 @@ function Sched() {
 
   return (
     <div className="App">
-      <Link to="/" className="upper-left-button">Home</Link>
+      <Link to="/" className="upper-left-button">
+        Home
+      </Link>
       <h2>Please select your preferred laundry schedule and time for your laundry activities.</h2>
       <div className="top">
         {days.slice(0, 3).map((day, index) => (
@@ -68,15 +95,25 @@ function Sched() {
               {times.map((time) => (
                 <div
                   key={time}
-                  className={`time-slot ${selectedTime === time ? 'active' : ''}`}
+                  className={`time-slot ${
+                    selectedTime === time ? 'active' : unavailableTimes[selectedBox].includes(time) ? 'unavailable' : ''
+                  }`}
                   onClick={() => handleTimeClick(time)}
                 >
                   {time}
                 </div>
               ))}
             </div>
+            <button onClick={confirmSchedule}>Confirm</button>
             <button onClick={closePopout}>Close</button>
           </div>
+        </div>
+      )}
+      {confirmedSchedule && (
+        <div className="confirmation">
+          <h2>Confirmed Schedule</h2>
+          <p>Day: {confirmedSchedule.day}</p>
+          <p>Time: {confirmedSchedule.time}</p>
         </div>
       )}
     </div>
