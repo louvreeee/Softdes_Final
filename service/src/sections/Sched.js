@@ -104,7 +104,11 @@ function Sched() {
                 </div>
               ))}
             </div>
+
+
+          <Link to="/Home">
             <button onClick={confirmSchedule}>Confirm</button>
+          </Link>
             <button onClick={closePopout}>Close</button>
           </div>
         </div>
