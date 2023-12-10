@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
-const orderDetailsRoutes = require('./routes/orderDetails')
+const scheduleRoutes = require('./routes/scheduleRoutes');
 
 // express app
 const app = express()
@@ -16,19 +16,17 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api/orderDetails', orderDetailsRoutes)
+app.use('/api/schedule', scheduleRoutes);
 
-// Conncect to database
+// connect to db
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        // listen for requests
-        app.listen(process.env.PORT, () => {
-         console.log('Connected to the Database & Listening on Port', process.env.PORT)
+  .then(() => {
+    console.log('connected to database')
+    // listen to port
+    app.listen(process.env.PORT, () => {
+      console.log('listening for requests on port', process.env.PORT)
+    })
   })
-
-    })
-
-    .catch((error) => {
-        console.log(error)
-    })
-
+  .catch((err) => {
+    console.log(err)
+  }) 

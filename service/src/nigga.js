@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import React, { useState, useEffect } from 'react';
+
 
 import Contact from "./sections/Contact";
 import Services from "./sections/Services";
@@ -12,16 +12,18 @@ import NavProvider from './context/NavContext'
 function nigga() {
   
   return (
-    <div>
+    
       <NavProvider>
-        <Header />
-        <Home />
-        <Services />
-        <About />
-        <Prices />
-        <Contact />
+        <div>
+          <Header />
+          <Home />
+          <Services />
+          <About />
+          <Prices />
+          <Contact />
+        </div>
       </NavProvider>
-    </div>
+    
   );
 }
 

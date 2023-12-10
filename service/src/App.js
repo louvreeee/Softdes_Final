@@ -26,7 +26,6 @@ function App() {
 
 
 
-        {/* Define more routes for other components as needed */}
       </Routes>
     </BrowserRouter>
   );
