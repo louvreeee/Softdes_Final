@@ -1,6 +1,7 @@
 import { useNav } from "../hooks/useNav"
 import style from '../styles/Body.css'
 import React from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Contact = () => {
   const bookingRef = useNav("Contact")
 

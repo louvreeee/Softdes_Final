@@ -1,7 +1,9 @@
 import { useNav } from "../hooks/useNav"
 import React from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Prices = () => {
   const flightRef = useNav("Prices")
+  
 
   return (
     <section ref={flightRef} id="pricesSection" className="Prices">

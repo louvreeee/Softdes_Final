@@ -451,3 +451,21 @@
     height: 70vh;
     width:100%;
 }
+
+.home {
+  
+   /* Center the background image */
+  height: 100%; /* Set the height to 100% of the viewport height */
+  width: 100%; /* Set the width to 100% of the viewport width */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; /* Set text color to white or a contrasting color */
+  
+}
+
+.home img {
+  background-size: cover; /* Cover the entire container */
+  background-position: center;
+}

@@ -1,5 +1,6 @@
 import { useNav } from "../hooks/useNav"
 import React from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const About = () => {
   const hotelRef = useNav("About")
